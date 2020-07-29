@@ -1,9 +1,12 @@
 import React from 'react'
 
-export const SecondaryCards = () => {
+
+const City = () => {
  return (
   <div>
    
   </div>
  )
 }
+
+export default City
