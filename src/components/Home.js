@@ -7,7 +7,7 @@ import SavedCities from './SavedCities/Container'
 class Home extends Component {
  render() {
   return (
-   <div>
+   <div className="home">
     <Head />
     <FeaturedCard />
     <Temperature />
