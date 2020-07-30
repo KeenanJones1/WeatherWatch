@@ -3,17 +3,18 @@ import Location from './Location'
 import LocationTime from './LocationTime'
 import WeatherIcon from './WeatherIcon'
 import WeatherDetails from './WeatherDetails/WeatherDetails'
+import { Card } from '@material-ui/core'
 
 
 class FeaturedCard extends Component{
  render(){
   return (
-   <div>
+   <Card className="card" id="feature-card" variant="outlined">
     <Location />
     <LocationTime />
     <WeatherIcon />
     <WeatherDetails />
-   </div>
+   </Card>
   )
  }
 }
