@@ -41,16 +41,6 @@ code {
 
 }
 
-#feature-card{
-border: 0.1rem  white;
-border-style:solid dashed ;
-position: relative;
-left: 27%;
-width: 55vw;
-height: 60vh;
-opacity: 0.2;
-background: linear-gradient(to top, #000066 0%, #3399ff 99%);
-}
 
 .location{
 
@@ -144,7 +134,86 @@ background: linear-gradient(to top, #000066 0%, #3399ff 99%);
   padding: 10px ;
 }
 
-#words{
-  font-size: 150px;
-  color: white;
+#temp{
+  cursor: pointer;
+  font-size: 1000%;
+  margin-left:3px;
+  color:white;
+  position: relative;
+  left: 5vw;
+}
+
+
+#feature-card{
+  border: 0.1rem  transparent;
+  border-style: dashed;
+  position: relative;
+  left: 27%;
+  width: 55vw;
+  height: 60vh;
+  background: transparent;
+}
+
+#view-details{
+cursor: pointer;
+position: relative;
+left: 20%;
+top:20vh;
+font-size: 120px;
+color: white;
+}
+
+@media screen and (max-width: 600px){
+  #view-details{
+    font-size: 70px;
+    position: relative;
+    left: 20vw;
+
+  }
+
+  #temp{
+    cursor: pointer;
+    font-size: 700%;
+    margin-left:3px;
+    color:white;
+    position: relative;
+    left: 5vw;
+  }
+  
+}
+
+@media screen and (max-width: 381px){
+  
+
+  #temp{
+    cursor: pointer;
+    font-size: 600%;
+    margin-left:3px;
+    color:white;
+    position: relative;
+    left: 5vw;
+  }
+  
+}
+
+@media screen and (max-width: 341px){
+  
+
+  #temp{
+    cursor: pointer;
+    font-size: 400%;
+    margin-left:3px;
+    color:white;
+    position: relative;
+    left: 20vw;
+  }
+  
+}
+
+
+
+#view-details:hover{
+position: relative;
+left: 25%;
+top: 17vh;
 }

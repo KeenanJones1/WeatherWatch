@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Location from './Location'
 import LocationTime from './LocationTime'
 import WeatherIcon from './WeatherIcon'
 import WeatherDetails from './WeatherDetails/WeatherDetails'
-import { Card } from '@material-ui/core'
+import { Card, IconButton } from '@material-ui/core'
+import { ExpandLess } from '@material-ui/icons'
+import Temperature from '../Temperature/Temperature'
 
 
 class FeaturedCard extends Component{
@@ -11,9 +13,13 @@ class FeaturedCard extends Component{
   return (
    <Card className="card" id="feature-card" variant="outlined">
     <Location />
+    <Temperature/>
     <LocationTime />
     <WeatherIcon />
-    <WeatherDetails />
+   
+    <Fragment>
+      <WeatherDetails/>
+    </Fragment>
    </Card>
   )
  }
