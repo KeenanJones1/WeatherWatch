@@ -1,13 +1,14 @@
 import React from 'react'
 import City from './City'
+import { Grid } from '@material-ui/core'
 
 // map over an array and produce City cards.
 
 const Cities = () => {
  return (
-  <div>
+  <Grid container xs={12} sm={6}>
    <City />
-  </div>
+  </Grid>
  )
 }
 
