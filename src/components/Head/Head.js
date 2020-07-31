@@ -3,21 +3,33 @@ import SearchBar from './SearchBar'
 import Signup from './Signup'
 import Login from './Login'
 import UserButton from './UserButton'
-
+import { Grid } from '@material-ui/core'
 class Head extends Component{
  
 
  render(){
   return (
-   <div className="head">
-    <Fragment>
+   <Grid className="head" id="head-container" container direction="row">
+    <Grid item >
+     <SearchBar />
+    </Grid>
+
+    <Grid item>
+     <Login/>
+    </Grid>
+
+    <Grid item>
+     {/* <AddButton/> */}
+    </Grid>
+
+    {/* <Fragment>
      <UserButton/>
     </Fragment>
 
     <SearchBar />
     <Signup />
-    <Login />
-   </div>
+    <Login /> */}
+   </Grid>
   )
  }
 }

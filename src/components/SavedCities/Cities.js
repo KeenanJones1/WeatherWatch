@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core'
 const Cities = () => {
  return (
   <Grid container xs={12} sm={6}>
+   
    <City />
   </Grid>
  )

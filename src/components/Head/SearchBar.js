@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TextField, Button} from "@material-ui/core";
+import { TextField, Button, Grid} from "@material-ui/core";
 
 
 export default class SearchBar extends Component {
@@ -12,11 +12,17 @@ export default class SearchBar extends Component {
  
  render() {
   return (
-    <form className="search-bar">
-     <TextField variant="outlined"
+    <Grid className="search-bar">
+      <input type="text" name="" id="search-bar"/>
+     {/* <TextField variant="outlined"
      id="search-bar" label="City Search" />
-      <Button />
-    </form>
+      <Button /> */}
+      <Button id="search-button" large>
+        Submit
+      </Button>
+
+
+    </Grid>
   )
  }
 }
