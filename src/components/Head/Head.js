@@ -3,32 +3,28 @@ import SearchBar from './SearchBar'
 import Signup from './Signup'
 import Login from './Login'
 import UserButton from './UserButton'
-import { Grid } from '@material-ui/core'
-class Head extends Component{
- 
+import { Grid, Typography} from '@material-ui/core'
+import { Menu, AddCircleOutline } from '@material-ui/icons'
 
+class Head extends Component{
  render(){
   return (
-   <Grid className="head" id="head-container" container direction="row">
-    <Grid item >
-     <SearchBar />
+   <Grid className="head" id="head-container" container direction="row" justify="space-evenly" spacing={3}>
+
+    <Grid item xs={4} align="center">
+     <Menu className="button" id="menu-button"/>
     </Grid>
 
-    <Grid item>
-     <Login/>
+    <Grid item xs={4} align="center">
+     <Typography variant="h5" >
+      Weather Watch
+     </Typography>
     </Grid>
 
-    <Grid item>
-     {/* <AddButton/> */}
+    <Grid item xs={4} className="button" id="add-button" align="center">
+     <AddCircleOutline fontSize="large"/>
     </Grid>
-
-    {/* <Fragment>
-     <UserButton/>
-    </Fragment>
-
-    <SearchBar />
-    <Signup />
-    <Login /> */}
+    
    </Grid>
   )
  }

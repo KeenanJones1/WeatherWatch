@@ -5,21 +5,25 @@ import WeatherIcon from './WeatherIcon'
 import WeatherDetails from './WeatherDetails/WeatherDetails'
 import { Grid, IconButton } from '@material-ui/core'
 import { ExpandLess } from '@material-ui/icons'
-import Temperature from '../Temperature/Temperature'
+import Temperature from './WeatherDetails/Temperature'
 
 
 class FeaturedCard extends Component{
   render(){
   return (
     <Grid className="main-weather" id="main-weather-container"  container direction= 'column' xs={12} sm={6}>
-      <Grid item >
+
+      <Grid item className="container" id="featured-container" direction="column">
         <Location />
         <LocationTime />
         <Temperature/>
+        <WeatherIcon />
       </Grid>
+
       <Grid item>
         <WeatherDetails />
       </Grid>
+
     </Grid>
     )
   }

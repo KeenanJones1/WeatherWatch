@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import {  } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 
 export default class Location extends Component {
  render() {
   return (
-   <div>
-    
-   </div>
+   <Typography variant="h4" className="" id="location-text" align="center">
+    Chicago, IL US
+   </Typography>
   )
  }
 }

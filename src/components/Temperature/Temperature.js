@@ -6,6 +6,7 @@ const Temperature = () => {
  const [measurement, setMeasurement ] = useState(true)
  return (
   <div>
+   38°
   </div>
  )
 }
