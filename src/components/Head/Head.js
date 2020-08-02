@@ -12,11 +12,11 @@ class Head extends Component{
    <Grid className="head" id="head-container" container direction="row" justify="space-evenly" spacing={3}>
 
     <Grid item xs={4} align="center">
-     <Menu className="button" id="menu-button"/>
+     <Menu className="button" id="menu-button" fontSize="large"/>
     </Grid>
 
     <Grid item xs={4} align="center">
-     <Typography variant="h5" >
+     <Typography variant="h5" fontSize="large">
       Weather Watch
      </Typography>
     </Grid>
