@@ -80,14 +80,16 @@ code {
 #head-container{
   position: relative;
   overflow: auto;
-  bottom: 17vh;
+  bottom: 15vh;
   width: 100vw;
 }
 
-#featured-container{
-position: relative;
-bottom: 20%;
-}
+
+#main-weather-container{
+  position: relative;
+  bottom: 40%;
+  }
+
 
 #saved-cities-container{
   border: solid 3px white;

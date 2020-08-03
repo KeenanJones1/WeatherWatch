@@ -20,7 +20,7 @@ class FeaturedCard extends Component{
         <WeatherIcon />
         {/* Weather details icon only appear when the screen is small  */}
         {/* When the screen is full allow the detais to appear on the side */}
-        <WeatherDetails />
+        {/* <WeatherDetails /> */}
       </Grid>
 
 
