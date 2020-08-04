@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 
@@ -80,14 +79,14 @@ code {
 #head-container{
   position: relative;
   overflow: auto;
-  bottom: 15vh;
+  bottom: 80%;
   width: 100vw;
 }
 
 
 #main-weather-container{
   position: relative;
-  bottom: 40%;
+  bottom: 35%;
   }
 
 
@@ -98,6 +97,7 @@ code {
 
 #weather-details-container{
   position: relative;
+  bottom: 5%; 
   overflow: auto;
   width: 70vw;
 }

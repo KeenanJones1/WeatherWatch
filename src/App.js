@@ -1,10 +1,11 @@
 import React from 'react';
+import {createStore} from 'redux'
+import { Provider } from "react-redux";
 import { Route, Switch } from 'react-router-dom';
 import Home  from './components/Home.js'
 
 // MUI Theming 
 import { createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
-
 const theme = createMuiTheme({
   palette: {
     main: {
@@ -19,12 +20,20 @@ const theme = createMuiTheme({
   overrides: {},
 })
 
+
+// React Store
+const store = createStore()
+
+
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Switch>
-        <Route path="/" component={Home}/>
-      </Switch>
+      <Provider>
+        <Switch>
+          <Route path="/" component={Home}/>
+        </Switch>
+      </Provider>
     </ThemeProvider>
   );
 }
