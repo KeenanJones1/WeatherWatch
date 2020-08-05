@@ -1,6 +1,4 @@
 import React from 'react';
-import {createStore} from 'redux'
-import { Provider } from "react-redux";
 import { Route, Switch } from 'react-router-dom';
 import Home  from './components/Home.js'
 
@@ -21,19 +19,14 @@ const theme = createMuiTheme({
 })
 
 
-// React Store
-const store = createStore()
-
 
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Provider>
         <Switch>
           <Route path="/" component={Home}/>
         </Switch>
-      </Provider>
     </ThemeProvider>
   );
 }

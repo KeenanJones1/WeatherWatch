@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import SearchBar from './SearchBar'
 import Signup from './Signup'
 import Login from './Login'
@@ -11,6 +12,7 @@ class Head extends Component{
   super()
   this.state={
    drawerOpen: false,
+   loginDialogOpen: false,
    dialogOpen: false,
    left: false,
   }
@@ -32,6 +34,12 @@ class Head extends Component{
    })
   }
 
+  handleDialog = () => {
+   this.setState(prevState => ({ loginDialogOpen: !prevState.loginDialogOpen}))
+  }
+
+ 
+
  render(){
   return (
    <Grid className="head" id="head-container" container direction="row" justify="space-evenly" spacing={3}>
@@ -44,7 +52,7 @@ class Head extends Component{
       </IconButton>
       <Drawer open={this.state.drawerOpen} onClose={ () => this.toggleDrawer()}>
        <List>
-        <ListItem button>
+        <ListItem button onClick={() => this.handleDialog()}>
          <ListItemText primary="Login/Signup"/>
         </ListItem>
         <ListItem button>
@@ -55,6 +63,27 @@ class Head extends Component{
         </ListItem>
        </List>
       </Drawer>
+
+      <Dialog open={this.state.loginDialogOpen} onClose={() => this.handleDialog()}>
+       {/* title clickable switches to signup form */}
+       <DialogTitle>Login</DialogTitle>
+       <DialogContent>
+        <DialogContentText>Login</DialogContentText>
+        <TextField label="Email" autoFocus /> <br/>
+        <TextField label="Password" autoFocus />
+       </DialogContent>
+
+
+
+
+       <DialogActions>
+        <Button>Login</Button>
+        <Button onClick= {() => this.handleDialog()}>Cancel</Button>
+        {/* <GoogleLogin /> 
+        Need the client id 
+        */}
+       </DialogActions>
+      </Dialog>
      </Fragment>
     </Grid>
 
