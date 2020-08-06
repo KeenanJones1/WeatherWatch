@@ -101,3 +101,7 @@ code {
   overflow: auto;
   width: 70vw;
 }
+
+#login-form{
+  width: 70vw;
+}
