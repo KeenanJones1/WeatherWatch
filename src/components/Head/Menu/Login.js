@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 import { Button, Dialog, DialogActions, DialogContentText, DialogTitle, TextField, DialogContent } from '@material-ui/core'
 
-export default class Login extends Component {
+class Login extends Component {
 
 
 
@@ -23,3 +24,5 @@ export default class Login extends Component {
   )
  }
 }
+
+export default connect()(Login)
