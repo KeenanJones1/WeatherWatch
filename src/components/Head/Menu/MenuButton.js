@@ -12,7 +12,6 @@ export default class MenuButton extends Component {
       dialogOpen: false,
       login: true,
       signup: false
-    
     }
   }
 
@@ -57,11 +56,11 @@ render() {
         </List>
       </Drawer>
       <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()}>
-        <DialogTitle>
-          <Tabs value="Login" onClick={ () => this.handleLogin()}>
+        <DialogTitle >
+          <Tabs value="Login" onClick={ () => this.handleLogin()} id="login-tab" className="tabs">
             <Tab label="Login"/>
           </Tabs>
-          <Tabs value="Signup" onClick={ () => this.handleSignup()}>
+          <Tabs value="Signup" onClick={ () => this.handleSignup()} id="signup-tab" className="tabs">
             <Tab label="Signup"/>
           </Tabs>
         </DialogTitle>
