@@ -32,12 +32,13 @@ class SearchButton extends Component {
  handleSubmit = () => {
   this.props.fetchWeather(this.state)
   this.setState({query: ""})
+  this.handleClose()
  }
 
  handleKeyPress = (event) => {
   if(event.key === 'Enter'){
-    // send to fetch action for weather.
     this.props.fetchWeather(this.state)
+    this.handleClose()
     this.setState({query: ""})
   }
  } 

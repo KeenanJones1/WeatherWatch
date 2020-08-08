@@ -21,7 +21,7 @@ class FeaturedCard extends Component{
       <Grid item className="container" id="featured-container" direction="column" align="center">
         <Location locationName={weather.city} country={weather.country}/>
         <LocationTime />
-        <Temperature main={weather.temp}/>
+        <Temperature temp={weather.temp}/>
         <WeatherIcon main={weather.weather} description={weather.description}/>
         {/* Weather details icon only appear when the screen is small  */}
         {/* When the screen is full allow the detais to appear on the side */}
