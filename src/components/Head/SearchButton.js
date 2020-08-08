@@ -1,20 +1,73 @@
-import React, { Component } from 'react'
-import { TextField, Button, Grid} from "@material-ui/core";
+import React, { Component, Fragment } from 'react'
+import { TextField, Button, Grid, IconButton, Dialog, DialogContent, DialogActions, DialogTitle} from "@material-ui/core";
+import {AddCircleOutline} from "@material-ui/icons"
+
+// Redux
+import {connect} from 'react-redux'
+import {fetchWeather} from '../../actions/weather'
 
 
-export default class SearchButton extends Component {
+
+class SearchButton extends Component {
  constructor(){
   super()
   this.state = {
-
+    open : false,
+    query: "",
   }
  }
+
+ handleOpen = () => {
+  this.setState({open: true})
+ }
+
+ handleClose = () => {
+  this.setState({open: false})
+ }
  
+ handleSearch = (event) => {
+  this.setState({query: event.target.value})
+ }
+
+ handleSubmit = () => {
+  this.props.fetchWeather(this.state)
+  this.setState({query: ""})
+ }
+
+ handleKeyPress = (event) => {
+  if(event.key === 'Enter'){
+    // send to fetch action for weather.
+    this.props.fetchWeather(this.state)
+    this.setState({query: ""})
+  }
+ } 
+
  render() {
   return (
-    <Grid className="search-bar">
+    <Fragment >
+      <IconButton onClick={() => this.handleOpen()}>
+        <AddCircleOutline fontSize="large"/>
+      </IconButton>
 
-    </Grid>
+
+      <Dialog open={this.state.open}>
+        <DialogTitle>Search Weather</DialogTitle>
+
+        
+        <DialogContent>
+          <TextField label="Zip or City's name" onChange={(event) => this.handleSearch(event)} 
+          onKeyPress = {(event) => this.handleKeyPress(event)} value={this.state.query}/>
+        </DialogContent>
+
+        <DialogActions>
+          <Button onClick={() => this.handleSubmit()}>Submit</Button>
+          <Button onClick={() => this.handleClose()}>Cancel</Button>
+        </DialogActions>
+
+      </Dialog>
+    </Fragment>
   )
  }
 }
+
+export default connect(null, {fetchWeather})(SearchButton)

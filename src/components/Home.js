@@ -13,8 +13,8 @@ class Home extends Component {
      <Head />
     </Grid>
     <Grid item container className="home-container"  alignItems="center" justify="space-evenly" hidden>
-     {/* <FeaturedCard /> */}
-     <WeatherDetails />
+     <FeaturedCard />
+     {/* <WeatherDetails /> */}
     </Grid>
 
 

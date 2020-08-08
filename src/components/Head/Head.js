@@ -4,7 +4,7 @@ import MenuButton from './Menu/MenuButton'
 import SearchBar from './SearchButton'
 import Signup from './Menu/Signup'
 import Login from './Menu/Login.js'
-import UserButton from './UserButton'
+import SearchButton from './SearchButton'
 import { Grid, Typography, IconButton, Drawer, List, ListItem, ListItemText, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from '@material-ui/core'
 import { Menu, AddCircleOutline, PersonOutlined, MailOutlined, LockOutlined } from '@material-ui/icons'
 
@@ -44,10 +44,10 @@ class Head extends Component{
     </Grid>
 
     <Grid item xs={4} className="button" id="add-button" align="center">
+
      <Fragment>
-      <IconButton onClick={() => this.handleForm()}>
-       <AddCircleOutline fontSize="large"/>
-      </IconButton>
+      <SearchButton />
+     </Fragment>
 
       <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()}>
        <DialogTitle>Search Weather</DialogTitle>
@@ -67,7 +67,6 @@ class Head extends Component{
         </Button>
        </DialogActions>
       </Dialog>
-     </Fragment>
     </Grid>  
    </Grid>
   )
