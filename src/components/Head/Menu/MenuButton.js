@@ -1,4 +1,4 @@
-import React, { Component, Fragment} from 'react'
+import React, { Component} from 'react'
 import Login from './Login'
 import Signup from "./Signup";
 import {Grid, List, Drawer, ListItem, ListItemText, IconButton, DialogTitle, Dialog, Tabs, Tab} from '@material-ui/core'
@@ -69,16 +69,6 @@ render() {
     </Grid>
   )}}
 
-
-
-
-  {/* 
-        <ListItem button>
-          <ListItemText primary="About"/>
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Contact"/>
-        </ListItem> */}
 
 
 

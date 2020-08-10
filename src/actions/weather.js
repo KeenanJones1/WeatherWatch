@@ -5,8 +5,6 @@ const api = {
 
 
 export function fetchWeather(state){
- let reqObj = { method: 'POST', headers: { 'Content-type': 'application/json'}, body: JSON.stringify(state)}
- console.log(state.query)
  return (dispatch) => {
   dispatch({type: 'START_ADDING_WEATHER_REQUEST'})
   fetch(`${api.base}weather?q=${state.query}&units=imperial&APPID=${api.key}`)
@@ -15,4 +13,19 @@ export function fetchWeather(state){
   .catch()
  };
 }
+
+export function fetchWeek(state){
+ console.log(state)
+ return{ type: 'this'}
+ // ( dispatch ) => {
+ //  dispatch({})
+ //  fetch(`api.openweathermap.org/data/2.5/forecast?q=${state.cityname}&appid=${api.key}`)
+ //  .then()
+ //  .then()
+ //  .catch()
+ // };
+}
+
+
+// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
 

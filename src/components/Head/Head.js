@@ -1,12 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import MenuButton from './Menu/MenuButton'
-import SearchBar from './SearchButton'
-import Signup from './Menu/Signup'
-import Login from './Menu/Login.js'
 import SearchButton from './SearchButton'
-import { Grid, Typography, IconButton, Drawer, List, ListItem, ListItemText, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from '@material-ui/core'
-import { Menu, AddCircleOutline, PersonOutlined, MailOutlined, LockOutlined } from '@material-ui/icons'
+import { Grid, Typography, ListItemText, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from '@material-ui/core'
 
 class Head extends Component{
  constructor(){
