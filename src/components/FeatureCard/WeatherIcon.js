@@ -7,8 +7,6 @@ import { Grid } from '@material-ui/core'
 
 export default class WeatherIcon extends Component {
  render() {
-  console.log(this.props)
-
  const iconDynamic = () => {
   if(this.props.main === 'Clouds' || this.props.main === 'Cloud' || this.props.main === 'cloud' || this.props.main === 'clouds'){
    return cloud;
@@ -31,7 +29,7 @@ else{
 
   return (
    <Grid id="weather-icon" align="center">
-    <img src={iconDynamic()} alt="" srcset="" />
+    <img src={iconDynamic()} alt="" />
    </Grid>
   )
  }

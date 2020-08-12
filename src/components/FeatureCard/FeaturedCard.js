@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {  } from 'react'
 import Location from './Location'
 import LocationTime from './LocationTime'
 import WeatherIcon from './WeatherIcon'
@@ -12,13 +12,13 @@ import { connect } from "react-redux";
 import {fetchWeek} from '../../actions/weather'
 
 
-class FeaturedCard extends Component{
+class FeaturedCard extends React.Component{
 
   render(){
     const {weather} = this.props
   return (
-    <Grid className="main-weather" id="main-weather-container"  container direction= 'column' xs={12}>
-      <Grid item className="container" id="featured-container" direction="column" align="center">
+    <Grid container item className="main-weather" id="main-weather-container" direction= 'column' xs={12}>
+      <Grid container item className="container" id="featured-container" direction="column" align="center">
         <Location locationName={weather.city} country={weather.country}/>
         <LocationTime />
         <Temperature temp={weather.temp}/>
@@ -37,7 +37,6 @@ class FeaturedCard extends Component{
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.weather.mainWeather)
   return{
     weather: state.weather.mainWeather
   }

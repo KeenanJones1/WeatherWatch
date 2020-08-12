@@ -2,15 +2,16 @@ import React, {Component} from 'react'
 import { Table, TableContainer, TableHead, TableRow, Paper, TableCell, TableBody, IconButton } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
 
-class WeatherDetails extends React.Component{
+class WeatherDetails extends Component{
   constructor(){
     super()
     this.state = {
 
     }
   }
-  
+
   render(){
+    console.log(this.props)
     return (
       <TableContainer component={Paper} className="container" id="weather-details-container">
         <Table>

@@ -15,7 +15,6 @@ export function fetchWeather(state){
 }
 
 export function fetchWeek(state){
- console.log(state)
  return{ type: 'this'}
  // ( dispatch ) => {
  //  dispatch({})

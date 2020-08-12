@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Button, Dialog, DialogActions, DialogContentText, DialogTitle, TextField, DialogContent } from '@material-ui/core'
+import { Button, DialogActions, DialogContentText, DialogTitle, TextField, DialogContent } from '@material-ui/core'
 
 class Login extends Component {
  constructor(){

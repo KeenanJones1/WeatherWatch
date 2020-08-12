@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import MenuButton from './Menu/MenuButton'
 import SearchButton from './SearchButton'
-import { Grid, Typography, ListItemText, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from '@material-ui/core'
+import { Grid, Typography, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button} from '@material-ui/core'
 
 class Head extends Component{
  constructor(){
