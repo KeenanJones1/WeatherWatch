@@ -5,27 +5,29 @@ const openWeatherApi = {
 
 const accuweatherApi = {
  key: "l9GtReToEMGnudzGV4g1eMANLYAGW9CW",
- citySearch: "http://dataservice.accuweather.com/locations/v1/cities/search"
+ base: "http://dataservice.accuweather.com/locations/v1/cities/search"
+ //  /locations/v1/cities/search?apikey=l9GtReToEMGnudzGV4g1eMANLYAGW9CW&q=Chicago&language=en-us&details=false
 }
 
-let city = ""
+
 
 
 export function fetchWeather(state){
  return (dispatch) => {
   dispatch({type: 'START_ADDING_WEATHER_REQUEST'})
-  fetch(`${openWeatherApi.base}weather?q=${state.query}&units=imperial&APPID=${openWeatherApi.key}`)
+  fetch(`${accuweatherApi.base}/locations/v1/cities/search?apikey=${accuweatherApi.key}&q=${state.query}&language=en-us&details=false`)
   .then(resp => resp.json())
-  .then(mainWeather => {
-   dispatch({type:'ADD_MAIN_WEATHER' , mainWeather}) 
+  .then(mainWeather => 
+   {
+   // dispatch({type:'ADD_MAIN_WEATHER' , mainWeather}) 
    console.log(mainWeather.name)
-   city = mainWeather.name
+   
   })
   .catch()
  };
 }
 
-export function fetchWeek(){
+export function fetchWeek(state){
  return( dispatch ) => {
   dispatch({type: 'SET_WEEK_WEATHER'})
   fetch(``)
