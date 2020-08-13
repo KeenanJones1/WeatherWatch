@@ -15,6 +15,7 @@ import {fetchWeek} from '../../actions/weather'
 class FeaturedCard extends React.Component{
 
   render(){
+    console.log(this.props)
     const {weather} = this.props
   return (
     <Grid container item className="main-weather" id="main-weather-container" direction= 'column' xs={12}>
@@ -28,7 +29,7 @@ class FeaturedCard extends React.Component{
 
       <Grid item align="center" >
         <IconButton onClick = {() => this.props.toggleDetails()}>
-          <ExpandLess id="view-details" fontSize="large" />
+          { this.props.user ? <ExpandLess id="view-details" fontSize="large" /> : null }
         </IconButton>
       </Grid>
     </Grid>
@@ -38,7 +39,8 @@ class FeaturedCard extends React.Component{
 
 const mapStateToProps = (state) => {
   return{
-    weather: state.weather.mainWeather
+    weather: state.weather.mainWeather,
+    user: state.user.login
   }
 }
 

@@ -1,4 +1,4 @@
-export default function userReducer(state = { request: false, }, action){
+export default function userReducer(state = { request: false, login: false,  }, action){
  switch(action.type){
 
   case 'START_ADDING_USER_REQUEST':
