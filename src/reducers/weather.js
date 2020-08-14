@@ -1,4 +1,4 @@
-export default function weatherReducer( state = { savedWeather: [], mainWeather: {city: "", country: "", weather: "", description: "", temp: {}}, requesting: false}, action){
+export default function weatherReducer( state = { savedWeather: [], mainWeather: {cityName: "", country: "", weather: "", cityKey: "", description: "", temp: {}}, requesting: false}, action){
  switch(action.type){
   case 'START_ADDING_WEATHER_REQUEST': 
   return{
@@ -9,12 +9,12 @@ export default function weatherReducer( state = { savedWeather: [], mainWeather:
   }
 
 
-  case 'ADD_MAIN_WEATHER':
-   console.log(action)
-   const {mainWeather} = action
+  case 'ADD_MAIN_CITY':
+   console.log("ADD_MAIN_CITY action", action.mainCity[0])
+   const {mainCity} = action
    return {
     ...state, 
-    mainWeather: {...state.mainWeather, city: mainWeather.name, country: mainWeather.sys.country, weather: mainWeather.weather[0].main, description: mainWeather.weather[0].description, temp: mainWeather.main},
+    mainWeather: {...state.mainWeather, cityName: mainCity[0].EnglishName, cityKey: mainCity[0].Key, country: mainCity[0].Country.ID},
     savedWeather: [...state.savedWeather],
     requesting: false
    }

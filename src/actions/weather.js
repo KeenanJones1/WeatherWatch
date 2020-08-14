@@ -5,7 +5,8 @@ const openWeatherApi = {
 
 const accuweatherApi = {
  key: "l9GtReToEMGnudzGV4g1eMANLYAGW9CW",
- base: "http://dataservice.accuweather.com/locations/v1/cities/search"
+ base: "http://dataservice.accuweather.com/locations/v1/cities/search",
+ forcast: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"
  //  /locations/v1/cities/search?apikey=l9GtReToEMGnudzGV4g1eMANLYAGW9CW&q=Chicago&language=en-us&details=false
 }
 
@@ -15,15 +16,16 @@ const accuweatherApi = {
 export function fetchWeather(state){
  return (dispatch) => {
   dispatch({type: 'START_ADDING_WEATHER_REQUEST'})
-  fetch(`${accuweatherApi.base}/locations/v1/cities/search?apikey=${accuweatherApi.key}&q=${state.query}&language=en-us&details=false`)
+  let keyFetch =
+  fetch(`${accuweatherApi.base}?apikey=${accuweatherApi.key}&q=${state.query}&language=en-us&details=false`)
   .then(resp => resp.json())
-  .then(mainWeather => 
-   {
-   // dispatch({type:'ADD_MAIN_WEATHER' , mainWeather}) 
-   console.log(mainWeather.name)
-   
+  .then(mainCity => 
+   { dispatch({type:'ADD_MAIN_CITY' , mainCity}) 
+    fetch(`${accuweatherApi.forcast}${mainCity[0].ParentCity.Key}?apikey=${accuweatherApi.key}&language=en-us&details=false&metric=false`)
+    .then(resp => resp.json())
+    .then(data => console.log(data))
   })
-  .catch()
+  .catch((r) => console.log(r))
  };
 }
 
