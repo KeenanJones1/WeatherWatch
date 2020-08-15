@@ -21,12 +21,28 @@ export function fetchWeather(state){
   .then(resp => resp.json())
   .then(mainCity => 
    { dispatch({type:'ADD_MAIN_CITY' , mainCity}) 
-    fetch(`${accuweatherApi.forcast}${mainCity[0].ParentCity.Key}?apikey=${accuweatherApi.key}&language=en-us&details=false&metric=false`)
-    .then(resp => resp.json())
-    .then(data => console.log(data))
+     getCityWeather(mainCity, dispatch)
   })
   .catch((r) => console.log(r))
  };
+}
+
+
+const getCityWeather = (mainCity, dispatch) => {
+ if(mainCity[0].ParentCity){
+  return fetch(`${accuweatherApi.forcast}${mainCity[0].ParentCity.Key}?apikey=${accuweatherApi.key}&language=en-us&details=false&metric=false`)
+  .then(resp => resp.json())
+  .then(data => dispatch({type: 'ADD_MAIN_WEATHER', data}))
+  .catch()
+  console.log("ParentCity Key", mainCity[0].ParentCity.Key)
+ }
+ else{
+  return fetch(`${accuweatherApi.forcast}${mainCity[0].Key}?apikey=${accuweatherApi.key}&language=en-us&details=false&metric=false`)
+  .then(resp => resp.json())
+  .then(data => dispatch({type: 'ADD_MAIN_WEATHER', data}))
+  .catch
+  console.log("Not ParentCity Key", mainCity[0].Key)
+ }
 }
 
 export function fetchWeek(state){

@@ -4,7 +4,7 @@ import {AddCircleOutline} from "@material-ui/icons"
 
 // Redux
 import {connect} from 'react-redux'
-import {fetchWeather, fetchWeek} from '../../actions/weather'
+import {fetchWeather} from '../../actions/weather'
 
 
 
@@ -33,7 +33,6 @@ class SearchButton extends Component {
 
  handleSubmit = () => {
   this.props.fetchWeather(this.state)
-  this.props.fetchWeek()
   this.setState({query: ""})
   this.handleClose()
  }
@@ -75,4 +74,4 @@ class SearchButton extends Component {
  }
 }
 
-export default connect(null, {fetchWeather, fetchWeek})(SearchButton)
+export default connect(null, {fetchWeather})(SearchButton)
