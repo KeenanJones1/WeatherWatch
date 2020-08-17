@@ -40,7 +40,6 @@ class SearchButton extends Component {
  handleKeyPress = (event) => {
   if(event.key === 'Enter'){
     this.props.fetchWeather(this.state)
-    this.props.fetchWeek()
     this.handleClose()
     this.setState({query: ""})
   }

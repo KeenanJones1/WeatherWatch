@@ -6,23 +6,30 @@ import sunny from '../../images/sunny-icon.png'
 import { Grid } from '@material-ui/core'
 
 export default class WeatherIcon extends Component {
- render() {
+  render() {
+console.log('WeatherIcon props', this.props.main)
+
  const iconDynamic = () => {
-  if(this.props.main === 'Clouds' || this.props.main === 'Cloud' || this.props.main === 'cloud' || this.props.main === 'clouds'){
+  if(keywordSearch(this.props.main, 'cloud')){
    return cloud;
  }
- else if(this.props.main === 'Rain' || this.props.main === 'Rainy' || this.props.main === 'rain' || this.props.main === 'rainy'){
+ else if(keywordSearch(this.props.main, 'rain')){
    return rain
  }
- else if(this.props.main === 'Clear' || this.props.main === 'Sunny' || this.props.main === 'sunny' || this.props.main === 'clear'){
+ else if(keywordSearch(this.props.main, 'sunny')){
   return sunny
 }
- else if(this.props.main === 'Snow' || this.props.main === 'Snowing' || this.props.main === 'snow' || this.props.main === 'snowing'){
+ else if(keywordSearch(this.props.main, 'snow')){
   return snow
 }
 else{
  return cloud;
 }
+ }
+
+ const keywordSearch = (weather, icon) => {
+  let newWeather = weather.replace(/\s/g, '').toLowerCase()
+  return newWeather.includes(icon)
  }
   
 
@@ -34,3 +41,8 @@ else{
   )
  }
 }
+
+
+
+
+

@@ -9,21 +9,20 @@ import Temperature from './WeatherDetails/Temperature'
 
 // redux
 import { connect } from "react-redux";
-import {fetchWeek} from '../../actions/weather'
 
 
 class FeaturedCard extends React.Component{
 
   render(){
     console.log("Featured Card props",this.props)
-    const {mainWeather} = this.props
+    const {mainWeather} = this.props.weather
   return (
     <Grid container item className="main-weather" id="main-weather-container" direction= 'column' xs={12}>
-      {/* <Grid container item className="container" id="featured-container" direction="column" align="center">
-        <Location locationName={weather.city} country={weather.country}/>
-        <LocationTime />
-        <Temperature temp={weather.temp}/>
-        <WeatherIcon main={weather.weather} description={weather.description}/>
+      <Grid container item className="container" id="featured-container" direction="column" align="center">
+        <Location locationName={mainWeather.cityName} country={mainWeather.country}/>
+        {/* <LocationTime /> */}
+        <Temperature temp={mainWeather.temp}/>
+        <WeatherIcon main={mainWeather.weather} />
       </Grid>
 
 
@@ -31,7 +30,7 @@ class FeaturedCard extends React.Component{
         <IconButton onClick = {() => this.props.toggleDetails()}>
           { this.props.user ? <ExpandLess id="view-details" fontSize="large" /> : null }
         </IconButton>
-      </Grid> */}
+      </Grid>
     </Grid>
     )
   }
@@ -44,4 +43,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchWeek})(FeaturedCard)
+export default connect(mapStateToProps)(FeaturedCard)
