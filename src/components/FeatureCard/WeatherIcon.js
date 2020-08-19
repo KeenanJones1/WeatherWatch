@@ -7,8 +7,6 @@ import { Grid } from '@material-ui/core'
 
 export default class WeatherIcon extends Component {
   render() {
-console.log('WeatherIcon props', this.props.main)
-
  const iconDynamic = () => {
   if(keywordSearch(this.props.main, 'cloud')){
    return cloud;

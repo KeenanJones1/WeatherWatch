@@ -11,7 +11,8 @@ export default class MenuButton extends Component {
     this.state = { 
       dialogOpen: false,
       login: true,
-      signup: false
+      signup: false,
+      value: 0,
     }
   }
 
@@ -41,13 +42,16 @@ handleLogin = () => {
   }))
   }
 
+  setValue = (event, newValue) => {
+    this.setState({value: newValue})
+  }
+
 render() {
   return (
     <Grid item xs={4} align="center">
       <IconButton onClick={() => this.props.toggleDrawer()}>
         <Menu className="button" id="menu-button" fontSize="large" />
       </IconButton>
-
       <Drawer open={this.props.drawerOpen} onClose={ () => this.props.toggleDrawer()} >
         <List>
           <ListItem button onClick={() => this.handleOpen()}>
@@ -55,20 +59,17 @@ render() {
           </ListItem>
         </List>
       </Drawer>
-      <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()}>
+      <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()} alignItems="center">
         <DialogTitle >
-          <Tabs value="Login" onClick={ () => this.handleLogin()} id="login-tab" className="tabs">
-            <Tab label="Login"/>
-          </Tabs>
-          <Tabs value="Signup" onClick={ () => this.handleSignup()} id="signup-tab" className="tabs">
-            <Tab label="Signup"/>
+          <Tabs indicatorColor="primary" value={this.state.value} onChange={this.setValue}>
+            <Tab label="Login" value={0} onClick={ () => this.handleLogin()} id="login-tab" className="tabs"/>
+            <Tab label="Signup" value={1} onClick={ () => this.handleSignup()} id="signup-tab" className="tabs"/>
           </Tabs>
         </DialogTitle>
       { this.state.login ? <Login handleClose={this.handleClose} /> : <Signup handleClose={this.handleClose}/>}
       </Dialog>
     </Grid>
   )}}
-
 
 
 

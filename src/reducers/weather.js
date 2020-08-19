@@ -10,7 +10,6 @@ export default function weatherReducer( state = { savedWeather: [], mainWeather:
 
 
   case 'ADD_MAIN_CITY':
-   console.log("ADD_MAIN_CITY action", action.mainCity[0])
    const {mainCity} = action
    return {
     ...state, 
@@ -20,7 +19,6 @@ export default function weatherReducer( state = { savedWeather: [], mainWeather:
    }
 
    case 'ADD_MAIN_WEATHER':
-    console.log("ADD_MAIN_WEATHER", action.data)
     return {
      ...state, mainWeather: { ...state.mainWeather, forcasts: action.data.DailyForecasts, temp: action.data.DailyForecasts[0].Temperature.Maximum, weather: action.data.DailyForecasts[0].Day.IconPhrase}
     }

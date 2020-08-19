@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import { Table, TableContainer, TableHead, TableRow, Paper, TableCell, TableBody, IconButton } from '@material-ui/core'
 import { ExpandMore } from '@material-ui/icons'
 
@@ -10,82 +11,49 @@ class WeatherDetails extends Component{
     }
   }
 
+  dateFormatter = (dateStr) => {
+    let d = new Date(dateStr)
+    let newDate = d.toString()
+    return newDate.slice(0,3)
+  }
+
+   createTableRow = (dataArr) => {
+    return dataArr.map(data => {
+      return <TableRow key={this.dateFormatter(data.Date)}>
+    <TableCell>{this.dateFormatter(data.Date)}</TableCell>
+    <TableCell>{data.Day.IconPhrase}</TableCell>
+    <TableCell>{data.Temperature.Maximum.Value}°{data.Temperature.Maximum.Unit}</TableCell>
+    <TableCell>{data.Temperature.Minimum.Value}°{data.Temperature.Minimum.Unit}</TableCell>
+      <TableCell>{data.Night.IconPhrase}</TableCell>
+    </TableRow>
+    })
+   }
+
+   defaultTable = () => {
+    return  <div>
+      Searching for Weather Details
+    </div>
+    }
+
   render(){
     console.log("Weather Details props", this.props)
     return (
       <TableContainer component={Paper} className="container" id="weather-details-container">
         <Table>
+
+          
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
-              <TableCell></TableCell>
-              <TableCell>Temp</TableCell>
-              <TableCell>Feels-like</TableCell>
-              <TableCell align="right">Precip</TableCell>
+              <TableCell>Day</TableCell>
+              <TableCell>High/Temp</TableCell>
+              <TableCell>Low/Temp</TableCell>
+              <TableCell>Night</TableCell>
             </TableRow>
           </TableHead>
     
           <TableBody>
-    
-            <TableRow>
-              {/* Days change depends on what day it is */}
-              <TableCell>Monday</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>90°</TableCell>
-              <TableCell>120°</TableCell>
-              <TableCell>50%</TableCell>
-            </TableRow>
-    
-            <TableRow>
-              <TableCell>Tuesday</TableCell>
-            </TableRow>
-    
-            <TableRow>
-              {/* Days change depends on what day it is */}
-              <TableCell>Wednesday</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>90°</TableCell>
-              <TableCell>120°</TableCell>
-              <TableCell>50%</TableCell>
-            </TableRow>
-    
-            <TableRow>
-              {/* Days change depends on what day it is */}
-              <TableCell>Thursday</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>90°</TableCell>
-              <TableCell>120°</TableCell>
-              <TableCell>50%</TableCell>
-            </TableRow>
-    
-    
-            <TableRow>
-              {/* Days change depends on what day it is */}
-              <TableCell>Friday</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>90°</TableCell>
-              <TableCell>120°</TableCell>
-              <TableCell>50%</TableCell>
-            </TableRow>
-    
-            <TableRow>
-              {/* Days change depends on what day it is */}
-              <TableCell>Saturday</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>90°</TableCell>
-              <TableCell>120°</TableCell>
-              <TableCell>50%</TableCell>
-            </TableRow>
-    
-            <TableRow>
-              {/* Days change depends on what day it is */}
-              <TableCell>Sunday</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>90°</TableCell>
-              <TableCell>120°</TableCell>
-              <TableCell>50%</TableCell>
-            </TableRow>
-    
+          { this.props.forcast ? this.createTableRow(this.props.forcast) : this.defaultTable()}
           </TableBody>
         </Table>
     
@@ -97,6 +65,12 @@ class WeatherDetails extends Component{
   }
 }
 
-export default WeatherDetails
+const mapStateToProps = (state) => {
+  return {
+    forcast: state.weather.mainWeather.forcasts
+  }
+}
+
+export default connect(mapStateToProps)(WeatherDetails)
 
 

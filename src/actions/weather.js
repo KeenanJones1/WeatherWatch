@@ -1,7 +1,3 @@
-const openWeatherApi = {
- key: "be40f9cd8335ced68e24e6298417aa60",
- base: "https://api.openweathermap.org/data/2.5/"
-}
 
 const accuweatherApi = {
  key: "l9GtReToEMGnudzGV4g1eMANLYAGW9CW",
@@ -15,7 +11,6 @@ const accuweatherApi = {
 export function fetchWeather(state){
  return (dispatch) => {
   dispatch({type: 'START_ADDING_WEATHER_REQUEST'})
-  let keyFetch =
   fetch(`${accuweatherApi.base}?apikey=${accuweatherApi.key}&q=${state.query}&language=en-us&details=false`)
   .then(resp => resp.json())
   .then(mainCity => 
@@ -44,5 +39,4 @@ const getCityWeather = (mainCity, dispatch) => {
 
 
 
-// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
 
