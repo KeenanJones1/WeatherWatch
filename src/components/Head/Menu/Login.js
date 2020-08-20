@@ -5,19 +5,14 @@ import { Button, DialogActions, DialogContentText, DialogTitle, TextField, Dialo
 class Login extends Component {
  constructor(){
   super()
-  this.state={
+  this.state = {
    email: "",
    password: ""
   }
  }
 
 
- handleForm = (event) => {
-
-  this.setState({
-   [event.target.name]: event.target.value
-  })
- }
+ handleForm = (event) => {this.setState({[event.target.name]: event.target.value})}
 
 
 
@@ -25,12 +20,12 @@ class Login extends Component {
 
  render() {
   return (
- <Fragment >
-  <DialogTitle>Login</DialogTitle>
-  <DialogContent>
+ <Fragment>
+  <DialogTitle align='center'>Login</DialogTitle>
+  <DialogContent align='center'>
    <DialogContentText>Welcome Back, please login</DialogContentText>
-   <TextField onChange={this.handleForm} label="Email" autoFocus name="email"/> <br/>
-   <TextField onChange={this.handleForm} label="Password" autoFocus name="password" />
+   <TextField onChange={this.handleForm} label="Email" autoFocus name="email" value={this.state.email} /> <br/>
+   <TextField type="password" onChange={this.handleForm} label="Password" autoFocus name="password" value={this.state.password} />
   </DialogContent>
   <DialogActions>
    <Button>Login</Button>

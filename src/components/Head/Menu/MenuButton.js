@@ -59,7 +59,7 @@ render() {
           </ListItem>
         </List>
       </Drawer>
-      <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()} alignItems="center">
+      <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()} alignItems="center" >
         <DialogTitle >
           <Tabs indicatorColor="primary" value={this.state.value} onChange={this.setValue}>
             <Tab label="Login" value={0} onClick={ () => this.handleLogin()} id="login-tab" className="tabs"/>
