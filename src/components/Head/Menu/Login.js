@@ -6,7 +6,7 @@ class Login extends Component {
  constructor(){
   super()
   this.state = {
-   email: "",
+   username: "",
    password: ""
   }
  }
@@ -24,7 +24,7 @@ class Login extends Component {
   <DialogTitle align='center'>Login</DialogTitle>
   <DialogContent align='center'>
    <DialogContentText>Welcome Back, please login</DialogContentText>
-   <TextField onChange={this.handleForm} label="Email" autoFocus name="email" value={this.state.email} /> <br/>
+   <TextField onChange={this.handleForm} label="Username" autoFocus name="username" value={this.state.username} /> <br/>
    <TextField type="password" onChange={this.handleForm} label="Password" autoFocus name="password" value={this.state.password} />
   </DialogContent>
   <DialogActions>

@@ -9,15 +9,20 @@ class Signup extends Component {
         super()
         this.state = {
             fullName: "",
-            email: "",
+            username: "",
             password: "",
         }
     }
 
     handleForm = (event) => {
         this.setState({[event.target.name]: event.target.value})
-        console.log(this.state)
     }
+
+    submitForm = (state) => {
+        this.props.createUser(state)
+        this.props.handleClose()
+    }
+
 
 
 render() {
@@ -27,11 +32,11 @@ return (
     <DialogContent align='center'>
     <DialogContentText>Create an account</DialogContentText>
     <TextField onChange={(event) => this.handleForm(event)} name="fullName" label="Full Name" autoFocus InputProps={{endAdornment: <PersonOutlined />}} value={this.state.fullName}/> <br/>
-    <TextField name="email" label="Email" autoFocus InputProps={{endAdornment: <MailOutlined />}} onChange={(event) => this.handleForm(event)} value={this.state.email} /> <br/>
+    <TextField name="username" label="Username/Email" autoFocus InputProps={{endAdornment: <MailOutlined />}} onChange={(event) => this.handleForm(event)} value={this.state.username} /> <br/>
     <TextField type="password" name="password" label="Password" autoFocus InputProps={{endAdornment: <LockOutlined />}} onChange={(event) => this.handleForm(event)} value={this.state.password}/>
     </DialogContent>
     <DialogActions>
-    <Button onClick={() => this.props.createUser(this.state)}>Create An Account</Button>
+    <Button onClick={() => this.submitForm(this.state)}>Create An Account</Button>
     <Button onClick= {() => this.props.handleClose()}>Cancel</Button>
     </DialogActions>
 </Fragment>

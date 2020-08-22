@@ -15,10 +15,10 @@ export function createUser(state){
   let reqObj = {
   method:'POST' ,
   headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({
-   fullName: state.fullName,
-   email: state.email,
-   password: state.password})
+  body: JSON.stringify({user : {
+   full_name: state.fullName,
+   username: state.username,
+   password: state.password}})
   }
 
   dispatch({type: 'START_CREATE_USER_REQUEST'});
