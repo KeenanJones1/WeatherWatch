@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
 import { DialogTitle, DialogContent, DialogActions, DialogContentText, TextField, Button} from '@material-ui/core'
-import { PersonOutlined, LockOutlined, MailOutlined, Event,  } from "@material-ui/icons";
-import {createUser } from '../../../actions/user'
+import { PersonOutlined, LockOutlined, MailOutlined,  } from "@material-ui/icons";
+import {createUser} from '../../../actions/user'
 
 class Signup extends Component {
     constructor(){

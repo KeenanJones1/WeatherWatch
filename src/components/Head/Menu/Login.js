@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Button, DialogActions, DialogContentText, DialogTitle, TextField, DialogContent } from '@material-ui/core'
+import {fetchUser} from '../../../actions/user'
 
 class Login extends Component {
  constructor(){
@@ -14,6 +15,9 @@ class Login extends Component {
 
  handleForm = (event) => {this.setState({[event.target.name]: event.target.value})}
 
+ handleSubmit = () => {
+  this.props.fetchUser(this.state)
+ }
 
 
 
@@ -28,7 +32,7 @@ class Login extends Component {
    <TextField type="password" onChange={this.handleForm} label="Password" autoFocus name="password" value={this.state.password} />
   </DialogContent>
   <DialogActions>
-   <Button>Login</Button>
+   <Button onClick= {() => this.handleSubmit()}>Login</Button>
    <Button onClick= {() => this.props.handleClose()}>Cancel</Button>
   </DialogActions>
  </Fragment>
@@ -36,4 +40,4 @@ class Login extends Component {
  }
 }
 
-export default connect()(Login)
+export default connect(null, {fetchUser})(Login)

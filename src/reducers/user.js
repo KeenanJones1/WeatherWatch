@@ -1,4 +1,4 @@
-export default function userReducer(state = { request: false, login: false,  }, action){
+export default function userReducer(state = { request: false, login: false, cities:[], full_name: "", username: ""}, action){
  switch(action.type){
 
   case 'START_ADDING_USER_REQUEST':
@@ -10,6 +10,12 @@ export default function userReducer(state = { request: false, login: false,  }, 
    return {
     ...state, user: action.user, requesting: false
    }
+
+   case 'SET_USER_INFO':
+    console.log(action)
+    return{
+     ...state, full_name: action.data.full_name, username: action.data.username, cities: action.data.cities
+    }
 
   default: 
   return state;

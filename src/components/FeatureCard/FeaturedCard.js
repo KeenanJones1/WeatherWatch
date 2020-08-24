@@ -13,6 +13,7 @@ class FeaturedCard extends React.Component{
 
   render(){
     const {mainWeather} = this.props.weather
+    console.log(this.props.user)
   return (
     <Grid container item className="main-weather" id="main-weather-container" direction= 'column' xs={12}>
       <Grid container item className="container" id="featured-container" direction="column" align="center">
@@ -33,7 +34,7 @@ class FeaturedCard extends React.Component{
 const mapStateToProps = (state) => {
   return{
     weather: state.weather,
-    user: state.user.login
+    user: state.user
   }
 }
 
