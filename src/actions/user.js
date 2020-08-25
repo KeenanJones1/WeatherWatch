@@ -35,7 +35,7 @@ export function fetchInfo(token, dispatch){
    headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}}
 
     fetch('http://localhost:3000/myuser', reqObj)
-    .then( resp => resp.json())
-    .then(data => dispatch({type: 'SET_USER_INFO', data})
-    )
+    .then(resp => resp.json())
+    .then(data => dispatch({type: 'SET_USER_INFO', data}))
+    .catch(err => console.log(err))
 }
