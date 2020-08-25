@@ -1,26 +1,35 @@
 import React, {  } from 'react'
 import Location from './Location'
 import WeatherIcon from './WeatherIcon'
-import { Grid, IconButton } from '@material-ui/core'
+import { Grid, IconButton, Tooltip } from '@material-ui/core'
 import { ExpandLess } from '@material-ui/icons'
 import Temperature from './WeatherDetails/Temperature'
 
 // redux
-import { connect } from "react-redux";
+import {connect} from "react-redux";
+import {fetchInfo} from "../../actions/user";
+import { saveCity } from "../../actions/weather";
 
 
 class FeaturedCard extends React.Component{
 
+  componentDidMount(){
+    let token = localStorage.getItem('token')
+    this.props.fetchInfo(token)
+  }
+
   render(){
     const {mainWeather} = this.props.weather
-    console.log(this.props.user)
   return (
     <Grid container item className="main-weather" id="main-weather-container" direction= 'column' xs={12}>
-      <Grid container item className="container" id="featured-container" direction="column" align="center">
+      <Tooltip title={this.props.user.login == true && mainWeather.forcasts.length > 0 ? "Add Card to Profile" : null}>
+      <Grid container item className="container" id={this.props.user.login == true && mainWeather.forcasts.length > 0 ? "featured-container" : null} direction="column" align="center"
+      onClick={ mainWeather.forcasts.length > 0 ? () => this.props.saveCity() : null }>
         <Location locationName={mainWeather.cityName} country={mainWeather.country}/>
         <Temperature temp={mainWeather.temp}/>
         <WeatherIcon main={mainWeather.weather} />
       </Grid>
+      </Tooltip>
       <Grid item align="center" >
         <IconButton onClick = {() => this.props.toggleDetails()}>
       {this.props.weather.mainWeather.forcasts.length > 0 ? <ExpandLess id="view-details" fontSize="large" /> : null }
@@ -38,4 +47,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(FeaturedCard)
+export default connect(mapStateToProps, {fetchInfo, saveCity})(FeaturedCard)

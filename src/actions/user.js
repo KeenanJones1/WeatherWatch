@@ -30,12 +30,14 @@ export function fetchUser(state){
    fetchInfo(data.token, dispatch)})}}
 
 export function fetchInfo(token, dispatch){
- let reqObj = {
-   method: 'GET',
-   headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}}
-
-    fetch('http://localhost:3000/myuser', reqObj)
-    .then(resp => resp.json())
-    .then(data => dispatch({type: 'SET_USER_INFO', data}))
-    .catch(err => console.log(err))
+  return (dispatch) => {
+    let reqObj = {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}}
+   
+       fetch('http://localhost:3000/myuser', reqObj)
+       .then(resp => resp.json())
+       .then(data => dispatch({type: 'SET_USER_INFO', data}))
+       .catch(err => console.log(err))
+  }
 }

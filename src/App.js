@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home  from './components/Home.js'
-
 // MUI Theming 
 import { createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 const theme = createMuiTheme({

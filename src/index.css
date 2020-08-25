@@ -118,3 +118,8 @@ code {
   display:inline; 
   width: 49%;
 }
+
+#featured-container:hover{
+  border: solid 2px black;
+  cursor: pointer;
+}
