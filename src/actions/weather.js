@@ -28,9 +28,16 @@ export function fetchWeather(state){
 // Add city to store
 // store the city info somewhere
 export function saveCity(city){
+  console.log(city)
+  let token = localStorage.getItem('token')
   return (dispatch) => {
+    let reqObj = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+      body: JSON.stringify({user_city:{name: city.cityName , country:city.country , key: city.cityKey}})
+    }
     dispatch({type: 'ADD_USER_CITY', city})
-    fetch(``)
+    fetch(`http://localhost:3000/user_cities`, reqObj)
     .then(resp => resp.json())
     .then(data => console.log(data))
   }
