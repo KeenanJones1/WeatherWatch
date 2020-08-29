@@ -5,10 +5,6 @@ const accuweatherApi = {
  forcast:"http://dataservice.accuweather.com/forecasts/v1/daily/5day/"
 }
 
-console.log(process.env)
-
-
-
 export function fetchWeather(state){
 
  return (dispatch) => {
@@ -23,12 +19,9 @@ export function fetchWeather(state){
  };
 }
 
-
-
 // Add city to store
 // store the city info somewhere
 export function saveCity(city){
-  console.log(city)
   let token = localStorage.getItem('token')
   return (dispatch) => {
     let reqObj = {
@@ -57,6 +50,16 @@ const getCityWeather = (mainCity, dispatch) => {
   .then(data => dispatch({type: 'ADD_MAIN_WEATHER', data}))
   .catch()
  }
+}
+
+// This function is called when the Home mounts 
+// 
+export function fetchUserCities(token, dispatch, cities){
+  debugger 
+  let i = 0
+  while(i < cities.length){
+    fetch(``)
+  }
 }
 
 

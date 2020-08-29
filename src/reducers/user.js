@@ -12,7 +12,6 @@ export default function userReducer(state = { request: false, login: false, citi
    }
 
    case 'SET_USER_INFO':
-    console.log(action)
     return{
      ...state, full_name: action.data.full_name, username: action.data.username, cities: action.data.cities, login: true
     }

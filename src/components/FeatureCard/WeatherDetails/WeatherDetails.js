@@ -36,12 +36,9 @@ class WeatherDetails extends Component{
     }
 
   render(){
-    console.log("Weather Details props", this.props)
     return (
       <TableContainer component={Paper} className="container" id="weather-details-container">
         <Table>
-
-          
           <TableHead>
             <TableRow>
               <TableCell></TableCell>

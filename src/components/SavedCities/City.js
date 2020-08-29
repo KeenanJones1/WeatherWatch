@@ -1,10 +1,12 @@
 import React from 'react'
+import { Card } from '@material-ui/core'
 
-
-const City = () => {
+const City = (props) => {
+ console.log(props)
  return (
-  <div>
-  </div>
+  <Card>
+   hello
+  </Card>
  )
 }
 

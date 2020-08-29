@@ -14,6 +14,10 @@ class Home extends Component {
   }
  }
 
+ componentDidMount(){
+
+ }
+
  toggleDetails = () => {
   this.setState(prevState => ({ showDetails : !prevState.showDetails }))
  }
@@ -38,4 +42,14 @@ class Home extends Component {
  }
 }
 
-export default connect()(Home)
+// Recieves the usercities and passes them to the savedCities
+
+const mapStateToProps = (state) => {
+ return {
+  user: state.user,
+ weather: state.weather
+ }
+}
+
+
+export default connect(mapStateToProps)(Home)
