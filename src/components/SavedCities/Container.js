@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core'
 
 const Container = () => {
  return (
-  <Grid container item className="saved-cities" id="saved-cities-container" xs={12} direction="row" justify="space-evenly">
+  <Grid container item >
 
    {/* Show either Cities or Weekly Temperatures depending if the login of the user  */}
    <Cities />

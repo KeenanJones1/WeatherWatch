@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Head from './Head/Head.js'
 import FeaturedCard from './FeatureCard/FeaturedCard'
 import WeatherDetails from './FeatureCard/WeatherDetails/WeatherDetails'
-import SavedCities from './SavedCities/Container'
+import Cities from './SavedCities/Cities'
 import { Grid } from '@material-ui/core'
 
 class Home extends Component {
@@ -15,7 +15,7 @@ class Home extends Component {
  }
 
  componentDidMount(){
-
+  
  }
 
  toggleDetails = () => {
@@ -23,6 +23,7 @@ class Home extends Component {
  }
 
  render() {
+  console.log(this.props.user)
   return (
    <Grid className="home" container direction="column" alignItems="center" justify="space-evenly">
     <Grid item container className="home-container">
@@ -35,7 +36,7 @@ class Home extends Component {
 
 
     <Grid item container className="home-container">
-     <SavedCities />
+     {this.props.user.cities.length > 0 ? <Cities /> : <p>Loading</p>}
     </Grid>
    </Grid>
   )
@@ -47,7 +48,7 @@ class Home extends Component {
 const mapStateToProps = (state) => {
  return {
   user: state.user,
- weather: state.weather
+  weather: state.weather
  }
 }
 
