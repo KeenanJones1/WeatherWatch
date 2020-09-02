@@ -24,6 +24,7 @@ class Home extends Component {
  }
 
  render() {
+  console.log(this.props)
   return (
    <Grid className="home" container direction="column" alignItems="center" justify="space-evenly">
     <Grid item container className="home-container">

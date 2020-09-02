@@ -5,22 +5,21 @@ import cloud from '../../images/cloud.png'
 
 class City extends React.Component{
 
-  componentDidMount(){
-    
-  }
+  
 
  render(){
-   console.log(this.props)
+  const {temp} = this.props.city
+  console.log(temp)
   return (
    <Grid container item className="saved-cities" component={Card} justify="space-evenly" xs={3} sm={3}>
  
     <Grid container item className="saved-cities-temps" justify="space-evenly">
      <Grid item id="high-temp" direction="column">
-      <Typography variant="subtitle1">46°</Typography>
-      <Typography variant="subtitle2" >High</Typography>
+      <Typography variant="subtitle1">{ temp ? `${temp.Maximum.Value}° ${temp.Maximum.Unit}` : '46°' }</Typography>
+      <Typography variant="subtitle2">High</Typography>
      </Grid>
      <Grid item id="low-temp" direction="column">
-      <Typography variant="subtitle1">10°</Typography>
+      <Typography variant="subtitle1">{ temp ? `${temp.Minimum.Value}° ${temp.Minimum.Unit}` : '10°' }</Typography>
       <Typography variant="subtitle2">Low</Typography>
      </Grid>
     </Grid>
