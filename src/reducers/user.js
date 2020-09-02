@@ -1,4 +1,4 @@
-export default function userReducer(state = { request: false, login: false, cities:[], full_name: "", username: ""}, action){
+export default function userReducer(state = { requesting: false, login: false, cities:[], full_name: "", username: ""}, action){
  switch(action.type){
 
   case 'START_ADDING_USER_REQUEST':
@@ -20,9 +20,13 @@ export default function userReducer(state = { request: false, login: false, citi
 
     case 'ADD_SAVED_WEATHER': 
     let cityIndex = state.cities.findIndex(city => city.key === action.cityKey) 
-    // debugger
-    return {...state, ...state.cities[cityIndex], ['temp'] : action.data.DailyForecasts[0].Temperature}
+    
+    
+    debugger
+    return {} 
   
+    case 'COMPLETE_USER_REQUEST':
+      return{ ...state, requesting: 'done' }
 
   default: 
   return state;

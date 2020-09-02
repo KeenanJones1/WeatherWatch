@@ -6,11 +6,11 @@ import cloud from '../../images/cloud.png'
 class City extends React.Component{
 
   componentDidMount(){
-   
+    
   }
 
  render(){
-  console.log(this.props)
+   console.log(this.props)
   return (
    <Grid container item className="saved-cities" component={Card} justify="space-evenly" xs={3} sm={3}>
  
@@ -28,7 +28,10 @@ class City extends React.Component{
     <Grid container item className="saved-cities-name" justify="center">
      <Typography variant="h6" className="saved-city-names">{this.props.city.name}, {this.props.city.country}</Typography>
     </Grid>
-    <Grid container item className="saved-cities-weather"></Grid>
+    <Grid container item className="saved-cities-weather">
+
+      
+    </Grid>
     {/* <Grid container direction="column" className="saved-cities-temp">
     
     </Grid>

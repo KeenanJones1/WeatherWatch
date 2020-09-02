@@ -7,7 +7,6 @@ const accuweatherApi = {
 }
 
 export const fetchWeather = (state) => {
-
  return (dispatch) => {
   dispatch({type: 'START_ADDING_WEATHER_REQUEST'})
   fetch(`${accuweatherApi.base}?apikey=${process.env.REACT_APP_API_KEY}&q=${state.query}&language=en-us&details=false`)
@@ -20,8 +19,6 @@ export const fetchWeather = (state) => {
  };
 }
 
-// Add city to store
-// store the city info somewhere
 export const saveCity = (city) => {
   let token = localStorage.getItem('token')
   return (dispatch) => {
@@ -53,24 +50,23 @@ const getCityWeather = (mainCity, dispatch) => {
  }
 }
 
-// This function is called when the Home mounts 
-// Map over the array of cities and fetch from accuWeather based on the key 
-export const fetchUserCities = (token, dispatch, cities) => {
-  debugger 
-  let i = 0
-  while(i < cities.length){
-    fetch(``)
-  }
+
+  const fetchSavedCityWeather = (cityKey, dispatch) => {
+  return fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${process.env.REACT_APP_API_KEY}`) 
+  .then(resp => resp.json())
+  .then(data => 
+    dispatch({type: 'ADD_SAVED_WEATHER', data, cityKey})
+  )
 }
 
-export const fetchSavedCityWeather = (cityKey) => {
+export const fetchCityWeather = (citiesArr) => {
   return (dispatch) => {
-    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${process.env.REACT_APP_API_KEY}`)
-  .then(resp => resp.json())
-  .then(data => dispatch({type: 'ADD_SAVED_WEATHER', data, cityKey}))}}
-
-
-
+    dispatch({type: 'START_ADDING_USER_REQUEST'})
+    citiesArr.map( city => 
+      fetchSavedCityWeather(city.key, dispatch))
+    dispatch({type: 'COMPLETE_USER_REQUEST'})
+  }
+}
 
 
 

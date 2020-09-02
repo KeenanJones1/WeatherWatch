@@ -19,12 +19,12 @@ class WeatherDetails extends Component{
 
    createTableRow = (dataArr) => {
     return dataArr.map(data => {
-      return <TableRow key={this.dateFormatter(data.Date)}>
-    <TableCell>{this.dateFormatter(data.Date)}</TableCell>
-    <TableCell>{data.Day.IconPhrase}</TableCell>
-    <TableCell>{data.Temperature.Maximum.Value}°{data.Temperature.Maximum.Unit}</TableCell>
-    <TableCell>{data.Temperature.Minimum.Value}°{data.Temperature.Minimum.Unit}</TableCell>
-      <TableCell>{data.Night.IconPhrase}</TableCell>
+      return <TableRow key={this.dateFormatter(data.Date)} sizeSmall>
+    <TableCell  sizeSmall>{this.dateFormatter(data.Date)}</TableCell>
+    <TableCell sizeSmall>{data.Day.IconPhrase}</TableCell>
+    <TableCell sizeSmall>{data.Temperature.Maximum.Value}°{data.Temperature.Maximum.Unit}</TableCell>
+    <TableCell sizeSmall>{data.Temperature.Minimum.Value}°{data.Temperature.Minimum.Unit}</TableCell>
+      <TableCell sizeSmall>{data.Night.IconPhrase}</TableCell>
     </TableRow>
     })
    }
@@ -37,8 +37,8 @@ class WeatherDetails extends Component{
 
   render(){
     return (
-      <TableContainer component={Paper} className="container" id="weather-details-container">
-        <Table>
+      <TableContainer component={Paper} className="container" id="weather-details-container" >
+        <Table sizeSmall >
           <TableHead>
             <TableRow>
               <TableCell></TableCell>
