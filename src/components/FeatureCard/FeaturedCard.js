@@ -13,11 +13,6 @@ import { saveCity } from "../../actions/weather";
 
 class FeaturedCard extends React.Component{
 
-  componentDidMount(){
-    let token = localStorage.getItem('token')
-    this.props.fetchInfo(token)
-  }
-
   render(){
     const {mainWeather} = this.props.weather
   return (

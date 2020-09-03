@@ -10,21 +10,16 @@ import { Grid } from '@material-ui/core'
 class Home extends Component {
  constructor(){
   super()
-  this.state = {
-   showDetails: false
-  }
+  this.state = {showDetails: false}
  }
 
- componentDidMount(){
-  
- }
+
 
  toggleDetails = () => {
   this.setState(prevState => ({ showDetails : !prevState.showDetails }))
  }
 
  render() {
-  console.log(this.props)
   return (
    <Grid className="home" container direction="column" alignItems="center" justify="space-evenly">
     <Grid item container className="home-container">
@@ -37,21 +32,16 @@ class Home extends Component {
 
 
     <Grid item container className="home-container">
-     {this.props.user.cities.length > 0 ? <Container /> : <p>Loading</p>}
+    
+     {this.props.user.login === true || localStorage.getItem('token') ? <Container/> : <p>Sign-in to Save Cities</p>}
     </Grid>
    </Grid>
   )
  }
 }
 
-// Recieves the usercities and passes them to the savedCities
 
-const mapStateToProps = (state) => {
- return {
-  user: state.user,
-  weather: state.weather
- }
-}
+const mapStateToProps = (state) => {return {user: state.user}}
 
 
 export default connect(mapStateToProps)(Home)

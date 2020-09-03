@@ -3,9 +3,11 @@ import Login from './Login'
 import Signup from "./Signup";
 import {Grid, List, Drawer, ListItem, ListItemText, IconButton, DialogTitle, Dialog, Tabs, Tab} from '@material-ui/core'
 import { Menu } from '@material-ui/icons'
+import {connect} from 'react-redux'
+import {logoutUser} from '../../../actions/user'
 
 
-export default class MenuButton extends Component {
+ class MenuButton extends Component {
   constructor(){
     super()
     this.state = { 
@@ -46,6 +48,13 @@ handleLogin = () => {
     this.setState({value: newValue})
   }
 
+  logout = () => {
+    this.handleClose()
+    this.props.logoutUser()
+  }
+
+  
+
 render() {
   return (
     <Grid item xs={4} align="center">
@@ -56,6 +65,9 @@ render() {
         <List>
           <ListItem button onClick={() => this.handleOpen()}>
             <ListItemText primary="Login/Signup" />
+          </ListItem>
+          <ListItem button onClick={() => this.logout()}>
+            <ListItemText primary="Logout" />
           </ListItem>
         </List>
       </Drawer>
@@ -71,5 +83,5 @@ render() {
     </Grid>
   )}}
 
-
+  export default connect(null, {logoutUser})(MenuButton)
 
