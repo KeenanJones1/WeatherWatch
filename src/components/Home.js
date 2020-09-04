@@ -5,7 +5,7 @@ import FeaturedCard from './FeatureCard/FeaturedCard'
 import WeatherDetails from './FeatureCard/WeatherDetails/WeatherDetails'
 import Container from './SavedCities/Container.js'
 import { Grid } from '@material-ui/core'
-
+import Loading from './Loading'
 
 class Home extends Component {
  constructor(){
@@ -33,7 +33,7 @@ class Home extends Component {
 
     <Grid item container className="home-container">
     
-     {this.props.user.login === true || localStorage.getItem('token') ? <Container/> : <p>Sign-in to Save Cities</p>}
+     {this.props.user.login === true || localStorage.getItem('token') ? <Container/> : <Loading/>}
     </Grid>
    </Grid>
   )

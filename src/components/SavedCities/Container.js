@@ -8,10 +8,18 @@ import {fetchInfo} from '../../actions/user'
 
 class Container extends React.Component{
 
+
+ fetchweather = () => {
+  let token = localStorage.getItem('token')
+  console.log("hello")
+  if(token){return this.props.fetchInfo(token)}
+ }
+
  render(){
+  console.log(this.props)
   return (
    <Grid container item >
-    {this.props.user.requesting === 'done' && this.props.user.cities ? <Cities /> : <p>Hello</p>}
+    {this.props.user.requesting && this.props.user.cities ? <Cities /> : this.fetchweather()}
    </Grid>
   )
  }
