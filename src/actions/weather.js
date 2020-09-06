@@ -51,19 +51,15 @@ const getCityWeather = (mainCity, dispatch) => {
 }
 
 
-  const fetchSavedCityWeather = (cityKey, dispatch) => {
-  return fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${process.env.REACT_APP_API_KEY}`) 
+export function fetchCityWeather(cityKey){
+  return (dispatch) => {
+    console.log(cityKey)
+    dispatch({type: 'START_ADDING_USER_REQUEST'})
+    fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${process.env.REACT_APP_API_KEY}`) 
   .then(resp => resp.json())
   .then(data => 
     dispatch({type: 'ADD_SAVED_WEATHER', data, cityKey})
   )
-}
-
-export const fetchCityWeather = (citiesArr) => {
-  return (dispatch) => {
-    dispatch({type: 'START_ADDING_USER_REQUEST'})
-    citiesArr.map( city => 
-      fetchSavedCityWeather(city.key, dispatch))
     dispatch({type: 'COMPLETE_USER_REQUEST'})
   }
 }

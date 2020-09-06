@@ -6,11 +6,6 @@ export default function userReducer(state = { requesting: false, token: "" , log
    ...state, requesting: true
   }
 
-  case 'SET_INFO': 
-  console.log(action)
-  return{
-    ...state, cities: action.data.cities, full_name: action.data.full_name, username: action.data.username
-  }
 
   case 'LOGIN': 
   return{...state, login: true}
@@ -27,9 +22,9 @@ export default function userReducer(state = { requesting: false, token: "" , log
 
     case 'ADD_SAVED_WEATHER': 
     let cityIndex = state.cities.findIndex(city => city.key === action.cityKey) 
-    
-    state.cities[cityIndex].temp = action.data.DailyForecasts[0].Temperature
-    return {...state} 
+    let newArray = [...state.cities]
+    newArray[cityIndex] = {...newArray[cityIndex], temp: action.data.DailyForecasts[0].Temperature }
+    return {...state, cities: newArray} 
   
     case 'COMPLETE_USER_REQUEST':
       return{ ...state, requesting: 'done' }

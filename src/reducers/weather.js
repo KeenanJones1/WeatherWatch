@@ -23,6 +23,7 @@ export default function weatherReducer( state = { savedWeather: [], mainWeather:
      ...state, mainWeather: { ...state.mainWeather, forcasts: action.data.DailyForecasts, temp: action.data.DailyForecasts[0].Temperature.Maximum, weather: action.data.DailyForecasts[0].Day.IconPhrase}
     }
 
+
   default: 
   return state;
  }
