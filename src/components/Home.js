@@ -27,7 +27,7 @@ class Home extends Component {
     </Grid>
     <Grid item container className="home-container"  alignItems="center" justify="space-evenly" hidden>
      
-    { this.state.showDetails === true ? <WeatherDetails toggleDetails = {this.toggleDetails}/> : <FeaturedCard toggleDetails = {this.toggleDetails}/> }
+    { this.state.showDetails == true ? <WeatherDetails toggleDetails = {this.toggleDetails}/> : <FeaturedCard toggleDetails = {this.toggleDetails}/> }
     </Grid>
 
 
