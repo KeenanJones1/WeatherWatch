@@ -25,6 +25,11 @@ export default function userReducer(state = { requesting: false, token: "" , log
     let newArray = [...state.cities]
     newArray[cityIndex] = {...newArray[cityIndex], temp: action.data.DailyForecasts[0].Temperature }
     return {...state, cities: newArray} 
+
+    case 'SET_CITIES': 
+    return {
+      ...state, cities: action.cities.cites
+    }
   
     case 'COMPLETE_USER_REQUEST':
       return{ ...state, requesting: 'done' }
