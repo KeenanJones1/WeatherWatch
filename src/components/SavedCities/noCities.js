@@ -1,6 +1,6 @@
 import React from 'react'
 
-function noCities() {
+function NoCities() {
  return (
   <div>
    Please find a city and save it to your account.
@@ -8,4 +8,4 @@ function noCities() {
  )
 }
 
-export default noCities
+export default NoCities

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import City from './City'
-import NoCities from './noCities'
+import NoCities from './NoCities'
 import { Grid } from '@material-ui/core'
 import {fetchCityWeather} from '../../actions/weather'
 

@@ -17,8 +17,8 @@ class FeaturedCard extends React.Component{
     const {mainWeather} = this.props.weather
   return (
     <Grid container item className="main-weather" id="main-weather-container" direction= 'column' xs={12}>
-      <Tooltip title={this.props.user.login == true && mainWeather.forcasts.length > 0 ? "Add Card to Profile" : null}>
-      <Grid container item className="container" id={this.props.user.login == true && mainWeather.forcasts.length > 0 ? "featured-container" : null} direction="column" align="center"
+      <Tooltip title={this.props.user.login === true && mainWeather.forcasts.length > 0 ? "Add Card to Profile" : null}>
+      <Grid container item className="container" id={this.props.user.login === true && mainWeather.forcasts.length > 0 ? "featured-container" : null} direction="column" align="center"
       onClick={ mainWeather.forcasts.length > 0 ? () => this.props.saveCity(mainWeather) : null }>
         <Location locationName={mainWeather.cityName} country={mainWeather.country}/>
         <Temperature temp={mainWeather.temp}/>
