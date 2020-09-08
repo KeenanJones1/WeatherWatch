@@ -11,7 +11,10 @@ export function createUser(state){
   fetch(`http://localhost:3000/signup`, reqObj)
   .then(resp => resp.json())
   .then(data => {
-   localStorage.setItem('token', data.token)
+    if(data.token !== "underfined"){  localStorage.setItem('token', data.token)
+    dispatch({type:'SET_USER_INFO', data})
+    dispatch({type: 'LOGIN'})
+  }
   })
   .catch()
  }}
