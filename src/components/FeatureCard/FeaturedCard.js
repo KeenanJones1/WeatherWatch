@@ -7,7 +7,6 @@ import Temperature from './WeatherDetails/Temperature'
 
 // redux
 import {connect} from "react-redux";
-import {fetchInfo} from "../../actions/user";
 import { saveCity } from "../../actions/weather";
 
 
@@ -42,4 +41,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchInfo, saveCity})(FeaturedCard)
+export default connect(mapStateToProps, {saveCity})(FeaturedCard)

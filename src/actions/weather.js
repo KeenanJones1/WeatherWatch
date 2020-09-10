@@ -30,7 +30,7 @@ export const saveCity = (city) => {
     dispatch({type: 'ADD_USER_CITY', city})
     fetch(`http://localhost:3000/user_cities`, reqObj)
     .then(resp => resp.json())
-    .then(data => console.log(data))
+    .then(data => alert(data))
   }
 }
 

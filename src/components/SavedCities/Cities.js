@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import City from './City'
 import NoCities from './NoCities'
 import { Grid } from '@material-ui/core'
-import {fetchCityWeather} from '../../actions/weather'
 
 class Cities extends React.Component{
 
@@ -12,7 +11,6 @@ class Cities extends React.Component{
  }
 
  render(){ 
-  console.log(this.props.userCities)
   return (
    <Grid container item id="saved-cities-container" direction="row" justify="space-evenly">
     {this.props.userCities.length > 0 ? this.renderCities() : <NoCities/>}
@@ -23,4 +21,4 @@ class Cities extends React.Component{
 
 const mapStateToProps = (state) => {return{ userCities: state.user.cities}}
 
-export default connect(mapStateToProps, {fetchCityWeather})(Cities)
+export default connect(mapStateToProps)(Cities)
