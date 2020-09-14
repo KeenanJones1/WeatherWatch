@@ -20,7 +20,6 @@ class Container extends React.Component{
 
 
  render(){
-  console.log("Container props", this.props)
   return (
    <Grid container >
     {this.props.user.cities.length > 0 ? <Cities /> : <NoCities/>}

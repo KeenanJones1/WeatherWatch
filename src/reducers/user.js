@@ -1,4 +1,4 @@
-export default function userReducer(state = { requesting: false, token: "" , login: false, cities:[], full_name: "", username: ""}, action){
+export default function userReducer(state = { requesting: false, login: false, cities:[], username: ""}, action){
  switch(action.type){
 
   case 'START_ADDING_USER_REQUEST':
@@ -17,7 +17,7 @@ export default function userReducer(state = { requesting: false, token: "" , log
 
    case 'SET_USER_INFO':
     return{
-     ...state, full_name: action.data.full_name, username: action.data.username, cities: action.data.cities
+     ...state, username: action.data.username, cities: action.data.cities, login: true
     }
 
     case 'ADD_SAVED_WEATHER': 

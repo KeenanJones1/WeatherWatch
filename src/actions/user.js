@@ -48,7 +48,8 @@ export function fetchUser(state){
       fetch('http://localhost:3000/myuser', reqObj)
       .then(resp => resp.json())
       .then(data => {
-        !data.message ? dispatch({type:'SET_USER_INFO', data}) : alert(data.message)  })
+        !data.message ? dispatch({type:'SET_USER_INFO', data}) : alert(data.message)  
+      })
       .catch(err => console.log(err))
     }}
 
@@ -71,3 +72,5 @@ export function removeCity(cityId, cityKey){
       .catch(err => console.log(err))
     }
   }
+
+  

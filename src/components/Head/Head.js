@@ -49,7 +49,7 @@ class Head extends Component{
        <DialogTitle>Search Weather</DialogTitle>
        <DialogContent>
         <DialogContentText>
-         Search either zip code or name of City
+         Search name of City
         </DialogContentText>
         <TextField autoFocus id="city-search" label= "Search" />
        </DialogContent>
@@ -58,7 +58,6 @@ class Head extends Component{
          Cancel
         </Button>
         <Button>
-         {/* fetch */}
          Search
         </Button>
        </DialogActions>

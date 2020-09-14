@@ -6,6 +6,7 @@ import WeatherDetails from './FeatureCard/WeatherDetails/WeatherDetails'
 import Container from './SavedCities/Container.js'
 import { Grid } from '@material-ui/core'
 import Loading from './Loading'
+import { fetchWeather } from '../actions/weather'
 
 class Home extends Component {
  constructor(){
@@ -18,6 +19,16 @@ class Home extends Component {
  toggleDetails = () => {
   this.setState(prevState => ({ showDetails : !prevState.showDetails }))
  }
+
+ // Infinte Loop!!!!!! 
+ // componentWillReceiveProps(nextProps){
+ //  const {user} = nextProps
+ //  if(user.requesting === "done" && nextProps.weather.mainWeather.cityName === ""){
+ //    let savedCity = user.cities[user.cities.length -1]
+ //    this.props.fetchWeather(savedCity.name)
+ //    console.log(nextProps.weather.mainWeather.cityName)
+ //  }
+ // }
 
  render() {
   return (
@@ -32,7 +43,6 @@ class Home extends Component {
 
 
     <Grid item container className="home-container">
-    
      {this.props.user.login === true || localStorage.getItem('token') ? <Container/> : <Loading/>}
     </Grid>
    </Grid>
@@ -41,7 +51,9 @@ class Home extends Component {
 }
 
 
-const mapStateToProps = (state) => {return {user: state.user}}
+const mapStateToProps = (state) => {return {
+ weather: state.weather,
+ user: state.user}}
 
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, {fetchWeather})(Home)

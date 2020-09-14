@@ -31,20 +31,20 @@ handleOpen = () => {
   }
 
 handleLogin = () => {
-  this.setState(prevState => ({
+  this.setState({
     login: true,
     signup: false
-  }))
+  })
   }
 
   handleSignup = () => {
-  this.setState(prevState => ({
+  this.setState({
     login: false,
     signup: true
-  }))
+  })
   }
 
-  setValue = (event, newValue) => {
+  setValue = (newValue) => {
     this.setState({value: newValue})
   }
 
@@ -63,12 +63,12 @@ render() {
       </IconButton>
       <Drawer open={this.props.drawerOpen} onClose={ () => this.props.toggleDrawer()} >
         <List>
-          <ListItem button onClick={() => this.handleOpen()}>
+          { !this.props.login ? <ListItem button onClick={() => this.handleOpen()}>
             <ListItemText primary="Login/Signup" />
-          </ListItem>
-          <ListItem button onClick={() => this.logout()}>
+          </ListItem> : null}
+         {  this.props.login ? <ListItem button onClick={() => this.logout()}>
             <ListItemText primary="Logout" />
-          </ListItem>
+          </ListItem> : null}
         </List>
       </Drawer>
       <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()} alignitems="center" >
@@ -83,5 +83,9 @@ render() {
     </Grid>
   )}}
 
-  export default connect(null, {logoutUser})(MenuButton)
+  const mapStateToProps = (state) => {
+    return { login: state.user.login}
+  }
+
+  export default connect(mapStateToProps, {logoutUser})(MenuButton)
 

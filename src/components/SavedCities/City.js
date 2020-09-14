@@ -18,7 +18,6 @@ class City extends React.Component{
   }
  }
 
-//  Add a delete button to each card that deletes a city from the user saved cities.
 
  componentDidMount(){
   this.props.fetchCityWeather(this.props.city.key)
@@ -49,7 +48,6 @@ class City extends React.Component{
 
  render(){
   const {highTemp, lowTemp, unit, name, country} = this.state
-    console.log(this.props)
   return (
    <Grid container item className="saved-cities" component={Card} justify="space-evenly" xs={3} sm={3}>
     <Grid container item className="saved-cities-temps" justify="space-evenly">

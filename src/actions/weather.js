@@ -3,13 +3,15 @@ require('dotenv').config();
 const accuweatherApi = {
  base: "http://dataservice.accuweather.com/locations/v1/cities/search",
  forcast:"http://dataservice.accuweather.com/forecasts/v1/daily/5day/",
- day: "http://dataservice.accuweather.com/forecasts/v1/daily/1day/348308?apikey=5555"
+ day: `http://dataservice.accuweather.com/forecasts/v1/daily/1day/348308?apikey=${process.env.REACT_APP_API_KEY}`
 }
 
+// Get the City's infomation  mostly the city Key but not the weather
+// This is the trigger for everything for the featured City
 export const fetchWeather = (state) => {
  return (dispatch) => {
   dispatch({type: 'START_ADDING_WEATHER_REQUEST'})
-  fetch(`${accuweatherApi.base}?apikey=${process.env.REACT_APP_API_KEY}&q=${state.query}&language=en-us&details=false`)
+  fetch(`${accuweatherApi.base}?apikey=${process.env.REACT_APP_API_KEY}&q=${state}&language=en-us&details=false`)
   .then(resp => resp.json())
   .then(mainCity => 
    { dispatch({type:'ADD_MAIN_CITY' , mainCity}) 
@@ -34,7 +36,7 @@ export const saveCity = (city) => {
   }
 }
 
-
+// Gets The Featured City Weather and sets it to the state with Add Main weather
 const getCityWeather = (mainCity, dispatch) => {
  if(mainCity[0].ParentCity){
   return fetch(`${accuweatherApi.forcast}${mainCity[0].ParentCity.Key}?apikey=${process.env.REACT_APP_API_KEY}&language=en-us&details=false&metric=false`)
@@ -53,7 +55,6 @@ const getCityWeather = (mainCity, dispatch) => {
 
 export function fetchCityWeather(cityKey){
   return (dispatch) => {
-    console.log(cityKey)
     dispatch({type: 'START_ADDING_USER_REQUEST'})
     fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${process.env.REACT_APP_API_KEY}`) 
   .then(resp => resp.json())

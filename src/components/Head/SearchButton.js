@@ -32,7 +32,7 @@ class SearchButton extends Component {
  }
 
  handleSubmit = () => {
-  this.props.fetchWeather(this.state)
+  this.props.fetchWeather(this.state.query)
   this.setState({query: ""})
   this.handleClose()
  }
@@ -58,7 +58,7 @@ class SearchButton extends Component {
 
         
         <DialogContent>
-          <TextField label="Zip or City's name" onChange={(event) => this.handleSearch(event)} 
+          <TextField label="City's name" onChange={(event) => this.handleSearch(event)} 
           onKeyPress = {(event) => this.handleKeyPress(event)} value={this.state.query}/>
         </DialogContent>
 
