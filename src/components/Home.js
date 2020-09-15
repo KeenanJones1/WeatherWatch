@@ -21,18 +21,27 @@ class Home extends Component {
  }
 
  // Infinte Loop!!!!!! 
- // componentWillReceiveProps(nextProps){
- //  const {user} = nextProps
- //  if(user.requesting === "done" && nextProps.weather.mainWeather.cityName === ""){
- //    let savedCity = user.cities[user.cities.length -1]
- //    this.props.fetchWeather(savedCity.name)
- //    console.log(nextProps.weather.mainWeather.cityName)
- //  }
+ // componentWillReceiveProps(nextProps, props){
+ //  // const {user} = nextProps
+ //  // if(user.requesting === "done" && nextProps.weather.mainWeather.cityName === ""){
+ //  //   let savedCity = user.cities[user.cities.length -1]
+ //  //   this.props.fetchWeather(savedCity.name)
+ //  //   console.log(nextProps.weather.mainWeather.cityName)
+ //  // }
+ //  console.log("nextProps", nextProps)
+ //  console.log("props", props)
+ // }
+
+ // loadingFeature = () => {
+ //  let savedCity = this.props.user.cities[this.props.user.cities.length -1]
+ //  // this.props.fetchWeather(savedCity.name)
+ //  console.log(savedCity.name)
  // }
 
  render() {
   return (
    <Grid className="home" container direction="column" alignItems="center" justify="space-evenly">
+    {/* { this.props.user.cities.length > 2 && this.props.weather.mainWeather.cityName === ""  ? this.loadingFeature() : null} */}
     <Grid item container className="home-container">
      <Head />
     </Grid>

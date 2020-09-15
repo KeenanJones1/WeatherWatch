@@ -31,20 +31,15 @@ class Head extends Component{
   return (
    <Grid className="head" id="head-container" container direction="row" justify="space-evenly" spacing={3}>
     <MenuButton toggleDrawer={this.toggleDrawer} drawerOpen={this.state.drawerOpen} />
-   
-
-    <Grid item xs={4} align="center">
-     <Typography variant="h5" fontSize="large">
+    <Grid item xs={4} justify="space-evenly">
+     <Typography variant="h5" fontSize="large" align="center" id="title">
       Weather Watch
      </Typography>
     </Grid>
-
     <Grid item xs={4} className="button" id="add-button" align="center">
-
      <Fragment>
       <SearchButton />
      </Fragment>
-
       <Dialog open={this.state.dialogOpen} onClose={() => this.handleClose()}>
        <DialogTitle>Search Weather</DialogTitle>
        <DialogContent>
